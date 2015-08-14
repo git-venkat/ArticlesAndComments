@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1><%= @article.title %></h1>
+</div>
+
+<%= simple_format @article.content %>
+
+<div class="well">
+  <h5>Comments</h5>
+
+  <%= content_tag :div, id: "comments", data: {url: article_comments_url(@article)} do %>
+    <%= render @article.comments %>
+  <% end %>
+
+  <h3>New Comment</h3>
+
+  <%= render 'comments/form' %>
+</div>
